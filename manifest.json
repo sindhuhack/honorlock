@@ -1,0 +1,295 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "version": "6.37.0.0",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "devtools_page": "devtools.html",
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Honorlock",
+    "default_icon": {
+      "16": "assets/build/icons/icon_16.png",
+      "32": "assets/build/icons/icon_32.png",
+      "48": "assets/build/icons/icon_48.png",
+      "128": "assets/build/icons/icon_128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "desktopCapture",
+    "tabs",
+    "system.display",
+    "storage",
+    "webNavigation",
+    "contentSettings",
+    "scripting",
+    "management",
+    "history",
+    "sidePanel",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/fonts/*",
+        "assets/images/*",
+        "assets/build/logos/hl-logo.svg",
+        "js/external_append.js",
+        "js/tinymce_disable_events.js",
+        "js/tinymce_watch_events.js",
+        "js/window_confirm_event_watcher.js"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/build/icons/icon_16.png",
+    "32": "assets/build/icons/icon_32.png",
+    "48": "assets/build/icons/icon_48.png",
+    "128": "assets/build/icons/icon_128.png"
+  },
+  "externally_connectable": {
+    "matches": [
+      "*://honorlock.com/*",
+      "*://*.honorlock.com/*"
+    ]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/platform_init_listener.js",
+        "js/installed_extension_events.js"
+      ]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "css": [
+        "css/base_styles.css",
+        "css/exam_tools_styles.css",
+        "css/alert_notification_styles.css",
+        "css/acknowledgment_modal_styles.css"
+      ]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://*/webapps/assessment/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/idle_browser_capture.js",
+        "js/alert_notification.js",
+        "js/acknowledgement_modal.js",
+        "js/exam_tools.js",
+        "js/universal_run.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.honorlock.com/hl-frame/*"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": [
+        "js/hl_frame_init_listener.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/taking/*"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle",
+      "js": [
+        "js/new_canvas_quiz.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/assignments/*",
+        "*://*/courses/*/external_tools/retrieve*"
+      ],
+      "js": [
+        "js/new_canvas_quiz_tab.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/quizzes*",
+        "*://*/courses/*/assignments/*"
+      ],
+      "run_at": "document_start",
+      "css": [
+        "css/canvas_styles.css"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/quizzes"
+      ],
+      "js": [
+        "js/canvas_quiz_listings.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/quizzes/*"
+      ],
+      "exclude_matches": [
+        "*://*/courses/*/quizzes/*/edit",
+        "*://*/courses/*/quizzes/*/take*"
+      ],
+      "all_frames": true,
+      "js": [
+        "js/canvas_env_setup.js",
+        "js/canvas_quiz_summary.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/quizzes/*/take?user_id=*",
+        "*://*/courses/*/assignments/*"
+      ],
+      "js": [
+        "js/canvas_env_setup.js",
+        "js/canvas_begin.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/courses/*/quizzes/*/take",
+        "*://*/courses/*/quizzes/*/take/questions/*"
+      ],
+      "js": [
+        "js/canvas_env_setup.js",
+        "js/canvas_run.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.honorlock.com/webapp/camera?*",
+        "*://*.honorlock.com/webrtc/init*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/webcam.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.honorlock.com/proctoring/chat?*"
+      ],
+      "js": [
+        "js/proctoring_chat.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.aleks.com/alekscgi*"
+      ],
+      "css": [
+        "css/aleks_styles.css"
+      ],
+      "js": [
+        "js/aleks.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/webapps/assessment/*"
+      ],
+      "run_at": "document_start",
+      "css": [
+        "css/base_styles.css",
+        "css/blackboard_classic_styles.css",
+        "css/alert_notification_styles.css",
+        "css/exam_tools_styles.css",
+        "css/acknowledgment_modal_styles.css"
+      ],
+      "all_frames": true,
+      "js": [
+        "js/idle_browser_capture.js",
+        "js/alert_notification.js",
+        "js/acknowledgement_modal.js",
+        "js/exam_tools.js",
+        "js/blackboard.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/d2l/lms/quizzing/*"
+      ],
+      "run_at": "document_idle",
+      "css": [
+        "css/d2l_styles.css"
+      ],
+      "all_frames": true,
+      "js": [
+        "js/d2l.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/student/collection/*/path/*/activity/*",
+        "*://*/student/path/*/activity/*",
+        "*://*/student/activity/*",
+        "*://*/assessment_responses/*",
+        "*://*/assessment_response_questions/*"
+      ],
+      "run_at": "document_idle",
+      "css": [
+        "css/intellum_styles.css"
+      ],
+      "all_frames": true,
+      "js": [
+        "js/intellum.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/ultra/*"
+      ],
+      "run_at": "document_end",
+      "css": [
+        "css/blackboard_ultra_styles.css"
+      ],
+      "all_frames": false,
+      "js": [
+        "js/bbu_launch_proctoring_messages.js",
+        "js/bbu_uef_messages.js",
+        "js/bbu_proctoring_messages.js",
+        "js/bbu_camera_window_messages.js",
+        "js/bbu_wait_for_first_question.js",
+        "js/bbu_initialize_exam.js",
+        "js/blackboard_ultra.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="honorlock-a11y">
+<head>
+    <title data-localize-text="user_onboarding_page_title">Honorlock Permissions Required</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/user_onboarding_styles.css">
+</head>
+<body class="hlx-m-0 hlx-font-sans hlx-w-full hlx-h-screen hlx-flex hlx-items-center hlx-content-center hlx-justify-start hlx-flex-col hlx-text-sm hlx-px-3 hlx-bg-[#F7F8F9] md:hlx-px-6 lg:hlx-px-12">
+    <main id="user-onboarding-main"
+          class="hlx-w-[1096px] hlx-max-w-full hlx-my-auto hlx-py-20 sm:hlx-flex sm:hlx-flex-row-reverse sm:hlx-items-center sm:hlx-content-center sm:hlx-justify-between lg:hlx-items-start lg:hlx-content-start"
+    >
+        <img src="./assets/images/user-onboarding.jpg"
+             data-localize-alt="user_onboarding_image_alt"
+             alt="A female user taking an exam on a laptop"
+             class="hlx-block hlx-w-[512px] hlx-max-w-full hlx-h-auto hlx-mb-8 hlx-mx-auto sm:hlx-mr-0 sm:hlx-mb-0 sm:hlx-max-w-[45%] sm:hlx-ml-6 lg:hlx-max-w-[50%]"
+        >
+        <div class="hlx-flex hlx-items-start hlx-content-start hlx-justify-start">
+            <img src="./assets/images/hl-logo-light-blue.svg"
+                 alt="Honorlock"
+                 class="hlx-flex-shrink-0 hlx-w-10 hlx-mr-4 lg:hlx-mr-6 lg:hlx-w-16 xl:hlx-mr-8 xl:hlx-w-20"
+            >
+            <div class="hlx-w-full sm:hlx-max-w-[400px] sm:hlx-mr-auto">
+                <h1 id="user-onboarding-heading"
+                    data-localize-text="user_onboarding_main_heading"
+                    class="hlx-font-poppins hlx-font-bold hlx-text-hl-light-blue-secondary hlx-mt-0 hlx-text-3xl hlx-mb-5 sm:hlx-text-2xl lg:hlx-text-3xl xl:hlx-text-4xl xl:hlx-leading-[1.4]"
+                >
+                    Thank you for installing Honorlock!
+                </h1>
+                <p data-localize-text="user_onboarding_main_paragraph"
+                   class="hlx-text-base hlx-text-[#666766] hlx-font-semibold hlx-pb-7 hlx-mb-7 hlx-border-t-0 hlx-border-x-0 hlx-border-b hlx-border-solid hlx-border-b-[#E4E4E4]">
+                    Before you can use the Honorlock Chrome Extension for your exam, you will need to click the button below to enable the correct permissions.
+                </p>
+                <div class="sm:hlx-flex sm:hlx-items-center sm:hlx-content-center sm:hlx-justify-between">
+                    <p data-localize-text="user_onboarding_enable_all_urls"
+                       class="hlx-text-[#282828] hlx-mr-3.5 hlx-mb-4 hlx-mt-0 sm:hlx-mb-0">
+                        Enable access to all URLs you visit?
+                    </p>
+                    <button id="user-onboarding-enable-permissions"
+                            data-localize-text="user_onboarding_enable_permissions_button"
+                            data-localize-aria-label="user_onboarding_enable_permissions_button_aria"
+                            aria-label="Yes, allow Honorlock to access all visited URLs"
+                            class="hlx-bg-hl-blue hlx-text-white hlx-font-semibold hlx-border-0 hlx-min-w-[160px] hlx-min-h-[44px] hlx-rounded hlx-font-sans hlx-transition-colors hlx-cursor-pointer hlx-flex-shrink-0 hlx-px-2 hover:hlx-bg-hl-blue-secondary sm:hlx-min-w-[130px] md:hlx-min-w-[160px]"
+                    >
+                        Yes, enable
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="hlx-text-center hlx-text-[#666766]">
+        <p data-localize-text="user_onboarding_footer_top"
+           class="hlx-mt-0 hlx-mb-3 hlx-leading-tight md:hlx-mb-2">
+            Honorlock only accesses URLs you visit during a proctored exam.
+        </p>
+        <p class="hlx-mt-0 hlx-mb-8 hlx-leading-tight">
+            <span data-localize-text="user_onboarding_footer_bottom">
+                Student privacy is incredibly important us. Read more about how we protect your privacy at
+            </span>
+            <a href="https://honorlock.com/studentprivacy/"
+               target="_blank"
+               rel="noopener noreferrer"
+               data-localize-aria-label="user_onboarding_footer_link_aria"
+               aria-label="Honorlock student privacy page, opens in a new window"
+               class="hlx-inline-flex hlx-items-center hlx-content-center hlx-text-hl-light-blue-secondary hlx-no-underline hlx-font-semibold hlx-fill-hl-light-blue-secondary hlx-transition-colors hover:hlx-underline hover:hlx-text-hl-blue hover:hlx-fill-hl-blue focus-visible:hlx-underline focus-visible:hlx-fill-hl-blue"
+            >
+                Honorlock.com/studentprivacy
+                <svg fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     role="img"
+                     class="hlx-w-6 hlx-fill-inherit hlx-ml-[-3px] hlx-relative hlx-left-[2px]"
+                     aria-hidden="true"
+                >
+                    <path class="hlx-fill-inherit"
+                          d="M18.707 5.293c.21.21.308.492.291.768V10a1 1 0 0 1-2 0V8.416l-5.29 5.291a1 1 0 0 1-1.415-1.414L15.586 7H14a1 1 0 1 1 0-2h4c.255 0 .512.097.707.293Z"
+                    />
+                    <path class="hlx-fill-inherit"
+                          d="M7 7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2a1 1 0 1 0-2 0v2H7V9h2a1 1 0 1 0 0-2H7Z"
+                    />
+                </svg>
+            </a>.
+        </p>
+    </footer>
+    <script src="./js/user_onboarding.js" defer></script>
+</body>
+</html>
